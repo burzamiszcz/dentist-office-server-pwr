@@ -1,0 +1,68 @@
+<div class="hero-head">
+    <div class="box">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="container">
+
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-end">
+
+                        <span class="navbar-item">
+                            <span class="icon">
+                              <a href="/start/{{username}}" class="button is-info is-light">
+                                <i class="fas fa-tooth fa-2x"></i>
+                              </a>
+                            </span>
+                                    </span>
+                        <span class="navbar-item">
+                            <a href="{{ url_for('office', username=username) }}" class="button is-info is-inverted">
+                                <span>Cennik</span>
+                             </a>
+                        </span>
+
+                        <span class="navbar-item">
+                            <a href="{{ url_for('calendar_sign', delta=0, username=username) }}" class="button is-info is-inverted">
+                                <span>Zaplanowane wizyty</span>
+                           </a>
+                        </span>
+
+                        
+                        <span class="navbar-item">
+                            <a href="{{ url_for('rtg', patient_id=id, username=username) }}" class="button is-info is-inverted">
+                                <span>Zdjęcia/RTV</span>
+                             </a>
+                        </span>
+
+                        <span class="navbar-item">
+                            <a href="{{ url_for('patient_info', patient_id=id, username=username) }}" class="button is-info is-inverted">
+                                <span>Dokumentacja medyczna</span>
+                           </a>
+                        </span>
+                        
+                        <span class="navbar-item">
+                            <a href="{{ url_for('list_box', username=username) }}" class="button is-info is-inverted">
+                                <span>Skrzynka odbiorcza</span>
+                             </a>
+                        </span>
+
+                        <span class="navbar-item">
+                            <a href="{{ url_for('my_profile', username=username) }}" class="button is-info is-inverted">
+                                <span>Mój profil</span>
+                           </a>
+                        </span>
+
+
+                        <span class="navbar-item">
+              <a href="/" class="button is-info">
+                <span class="icon">
+                  <i class="fas fa-sign-out-alt"></i>
+                </span>
+                        <span>Wyloguj</span>
+                        </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
