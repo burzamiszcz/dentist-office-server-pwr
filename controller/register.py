@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, Response, jsonify, request
 from model import Person
 from app import db
 
@@ -21,7 +21,7 @@ def create():
 
         db.session.add(person)
         db.session.commit()
-        return jsonify('done')
+        return Response(status=200)
     except:
-        return jsonify('notdone')
+        return Response(status=409)
 
