@@ -7,10 +7,12 @@ class Person(db.Model):
     password = db.Column(db.String(120), unique=False, nullable=False)
 
 class Calendar(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String(20), unique = False)
     patient_id = db.Column(db.Integer, unique = False, nullable = True)
 
 class Office(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique = False)
     city = db.Column(db.String(80), unique = False)
     street = db.Column(db.String(80), unique = False)
@@ -24,7 +26,7 @@ class Services(db.Model):
     cost = db.Column(db.String(80), unique = False)
 
 class Teeth(db.Model):
-    patient_id = id = db.Column(db.Integer, primary_key=True)
+    patient_id = db.Column(db.Integer, primary_key=True)
     tooth = db.Column(db.String(80), unique = False)
     status = db.Column(db.String(80), unique = False)
     tooth_info = db.Column(db.String(80), unique = False)
