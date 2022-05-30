@@ -31,3 +31,6 @@ class Teeth(db.Model):
     status = db.Column(db.String(80), unique = False)
     tooth_info = db.Column(db.String(80), unique = False)
 
+if __name__ == "__main__":
+    # Run this file directly to create the database tables.
+    db.create_all()

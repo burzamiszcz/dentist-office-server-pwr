@@ -1,4 +1,6 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify, request
+from model import Person
+from app import db
 
 register = Blueprint("register", __name__)
 
@@ -16,8 +18,8 @@ def create():
         password=data['password']
     )
 
-    db.session.add(user)
+    db.session.add(person)
     db.session.commit()
 
-    return jsonify(user)
+    return jsonify('done')
 

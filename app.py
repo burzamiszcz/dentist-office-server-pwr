@@ -1,23 +1,20 @@
 from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
 
-# .py files with endpoints import
-from controller.register import register
-from controller.login import login
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
 cors = CORS(app)
+db = SQLAlchemy(app)
+# from .app import app 
 
-#blueprints add
-app.register_blueprint(register, url_prefix = "/register")
-app.register_blueprint(login, url_prefix = "/login")
+if __name__ == "__main__":
+    from views import *
 
-#classes import
-import model
+    app.run(debug=True)
+
 
 
 

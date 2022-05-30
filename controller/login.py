@@ -1,4 +1,5 @@
-from flask import Blueprint
+from flask import Blueprint, Response, request
+from model import Person
 
 login = Blueprint("login", __name__)
 
@@ -13,7 +14,7 @@ def select():
     password = data['password']
 
     try:
-        user = User.query.filter_by(username = username).first()
+        user = Person.query.filter_by(username = username).first()
         if user.passowrd == password:
             return Response("{'message':'user has been logged succesfully'}", status=200, mimetype='application/json')
         else:
@@ -21,6 +22,3 @@ def select():
 
     except:
         return Response("{'message':'user login unsuccessully'}", status=500, mimetype='application/json')
-
-
-    return jsonify(username=username, password=password)
