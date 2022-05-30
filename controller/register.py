@@ -10,16 +10,18 @@ def test():
 
 @register.route('/', methods=['POST'])
 def create():
-    data = request.get_json()
+    try:
+        data = request.get_json()
 
-    person = Person(
-        username=data['username'],
-        email=data['email'],
-        password=data['password']
-    )
+        person = Person(
+            username=data['username'],
+            email=data['email'],
+            password=data['password']
+        )
 
-    db.session.add(person)
-    db.session.commit()
-
-    return jsonify('done')
+        db.session.add(person)
+        db.session.commit()
+        return jsonify('done')
+    except:
+        return jsonify('notdone')
 
