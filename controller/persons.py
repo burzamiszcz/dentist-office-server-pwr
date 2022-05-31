@@ -1,5 +1,6 @@
 from flask import Blueprint, Response, jsonify, request
 from model import Person
+from app import db
 
 persons = Blueprint("persons", __name__)
 
@@ -16,3 +17,13 @@ def getAll():
 def getPerson(id):
     person = Person.query.filter_by(id = id).first()
     return jsonify(person)
+
+@persons.route('/<id>', methods=['DELETE'])
+def deletePerson(id):
+    try:
+        person = Person.query.filter_by(id = id).first()
+        db.session.delete(person)
+        db.session.commit()
+        return Response(status=200)
+    except:
+        return Response(status=409)
