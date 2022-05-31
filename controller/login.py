@@ -7,7 +7,7 @@ login = Blueprint("login", __name__)
 def test():
     return ";)"
 
-@login.route('/login', methods=['POST'])
+@login.route('/', methods=['POST'])
 def select():
     data = request.get_json()
     username = data['username']
@@ -15,7 +15,7 @@ def select():
 
     try:
         user = Person.query.filter_by(username = username).first()
-        if user.passowrd == password:
+        if user.password == password:
             return Response("{'message':'user has been logged succesfully'}", status=200, mimetype='application/json')
         else:
             return Response("{'message':'user login unsuccessully'}", status=500, mimetype='application/json')
