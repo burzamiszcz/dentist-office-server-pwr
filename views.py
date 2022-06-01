@@ -1,6 +1,7 @@
 from controller.register import register
 from controller.login import login
 from controller.persons import persons
+from controller.office import office
 
 
 from app import app
@@ -9,3 +10,4 @@ from app import app
 app.register_blueprint(register, url_prefix = "/register")
 app.register_blueprint(login, url_prefix = "/login")
 app.register_blueprint(persons, url_prefix = "/persons")
+app.register_blueprint(office, url_prefix = "/office")
