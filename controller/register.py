@@ -1,16 +1,14 @@
-from flask import Blueprint, Response, request
+from flask import Blueprint, Response, jsonify, request
+from model import Person
+from app import db
 
-from model import Person, db
+register = Blueprint("register", __name__)
 
-register_bp = Blueprint('register', __name__)
-
-
-@register_bp.route('/test')
+@register.route('/test')
 def test():
     return ";)"
 
-
-@register_bp.route('/register', methods=['POST'])
+@register.route('/', methods=['POST'])
 def create():
     try:
         data = request.get_json()
@@ -26,3 +24,4 @@ def create():
         return Response(status=200)
     except:
         return Response(status=409)
+
