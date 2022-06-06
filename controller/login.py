@@ -16,9 +16,9 @@ def select():
     try:
         user = Person.query.filter_by(username = username).first()
         if user.password == password:
-            return Response("{'message':'user has been logged succesfully'}", status=200, mimetype='application/json')
+            return Response("{\"message\":\"user has been logged succesfully\"}", status=200, mimetype='application/json')
         else:
-            return Response("{'message':'user login unsuccessully'}", status=500, mimetype='application/json')
+            return Response("{\"message\":\"user login unsuccessully\"}", status=500, mimetype='application/json')
 
     except:
-        return Response("{'message':'user login unsuccessully'}", status=500, mimetype='application/json')
+        return Response("{\"message\":\"user login unsuccessully\"}", status=500, mimetype='application/json')
