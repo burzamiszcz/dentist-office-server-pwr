@@ -1,6 +1,6 @@
-from flask import Blueprint, Response, jsonify, request
+from flask import Blueprint, jsonify
+
 from model import Office
-from app import db
 
 office = Blueprint("office", __name__)
 

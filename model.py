@@ -1,5 +1,8 @@
-from app import db
+
 from dataclasses import dataclass
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 @dataclass
 class Person(db.Model):
