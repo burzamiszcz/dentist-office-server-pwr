@@ -8,7 +8,7 @@ office = Blueprint("office", __name__)
 def test():
     return ";)"
 
-@office.route('/', methods=['GET'])
+@office.route('', methods=['GET'])
 def getAll():
     office = Office.query.all()
     return jsonify(office)

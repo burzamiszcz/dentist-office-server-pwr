@@ -7,7 +7,7 @@ login = Blueprint("login", __name__)
 def test():
     return ";)"
 
-@login.route('/', methods=['POST'])
+@login.route('', methods=['POST'])
 def select():
     data = request.get_json()
     username = data['username']

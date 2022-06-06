@@ -8,7 +8,7 @@ persons = Blueprint("persons", __name__)
 def test():
     return ";)"
 
-@persons.route('/', methods=['GET'])
+@persons.route('', methods=['GET'])
 def getAll():
     persons = Person.query.all()
     return jsonify(persons)

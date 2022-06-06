@@ -8,7 +8,7 @@ register = Blueprint("register", __name__)
 def test():
     return ";)"
 
-@register.route('/', methods=['POST'])
+@register.route('', methods=['POST'])
 def create():
     try:
         data = request.get_json()
