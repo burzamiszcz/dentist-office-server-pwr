@@ -14,6 +14,16 @@ def getAll():
     persons = Person.query.all()
     return jsonify(persons)
 
+@persons.route('/patients', methods=['GET'])
+def getAllPatients():
+    persons = Person.query.filter_by(credential = "patient").all()
+    return jsonify(persons)
+
+@persons.route('/doctors', methods=['GET'])
+def getAllDoctors():
+    persons = Person.query.filter_by(credential = "doctor").all()
+    return jsonify(persons)
+
 @persons.route('/<id>', methods=['GET'])
 def getPerson(id):
     person = Person.query.filter_by(id = id).first()
