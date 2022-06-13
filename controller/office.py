@@ -18,6 +18,14 @@ def getOffice(id):
     office = Office.query.filter_by(id = id).first()
     return jsonify(office)
 
+@office.route('', methods=['PUT'])
+def putTeeth():
+    data = request.get_json()
+    office = Office.query.query.all().update(data)
+    db.session.commit()
+    return jsonify(office)
+
+
 @office.route('/addOffice', methods=['POST'])
 def create():
     # try:
