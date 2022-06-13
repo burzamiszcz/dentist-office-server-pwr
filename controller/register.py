@@ -10,18 +10,19 @@ def test():
 
 @register.route('', methods=['POST'])
 def create():
-    try:
+    # try:
         data = request.get_json()
 
         person = Person(
             username=data['username'],
             email=data['email'],
-            password=data['password']
+            password=data['password'],
+            credential=data["credential"]
         )
-
         db.session.add(person)
         db.session.commit()
+
         return Response(status=200)
-    except:
-        return Response(status=409)
+    # except:
+    #     return Response(status=409)
 

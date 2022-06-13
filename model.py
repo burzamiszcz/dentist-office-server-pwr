@@ -10,18 +10,23 @@ class Person(db.Model):
     username: str
     email: str
     password: str
-    credential = str
-    pesel = str
-    city = str
-    street = str
-    street_number = str
-    country = str
-    phone_number = str
+    first_name: str
+    last_name: str
+    credential: str
+    pesel: str
+    city:str
+    street: str
+    street_number: str
+    country: str
+    phone_number: str
+    note: str
     
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(120), unique=False, nullable=False)
+    first_name = db.Column(db.String(120), unique=False, nullable=False)
+    last_name = db.Column(db.String(120), unique=False, nullable=False)
     credential = db.Column(db.String(120), unique=False, nullable=False)
     pesel = db.Column(db.String(120), unique=False, nullable=True)
     city = db.Column(db.String(120), unique=False, nullable=True)
@@ -29,6 +34,7 @@ class Person(db.Model):
     street_number = db.Column(db.String(120), unique=False, nullable=True)
     country = db.Column(db.String(120), unique=False, nullable=True)
     phone_number = db.Column(db.String(120), unique=False, nullable=True)
+    note = db.Column(db.String(300), unique=False, nullable=True)
     
 
 @dataclass
@@ -36,10 +42,12 @@ class Calendar(db.Model):
     id: int
     date: str
     patient_id: int
+    doctor_id: int
 
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String(20), unique = False)
     patient_id = db.Column(db.Integer, unique = False, nullable = True)
+    doctor_id = db.Column(db.Integer, unique = False, nullable = True)
 
 @dataclass
 class Office(db.Model):
@@ -76,7 +84,7 @@ class Teeth(db.Model):
     status: str
     tooth_info: str
 
-    patient_id = db.Column(db.Integer, primary_key=True)
+    patient_id = db.Column(db.Integer, primary_key=True, unique = False)
     tooth = db.Column(db.String(80), primary_key = True, unique = False)
     status = db.Column(db.String(80), unique = False)
     tooth_info = db.Column(db.String(80), unique = False)
