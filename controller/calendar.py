@@ -42,7 +42,6 @@ def addCalendar():
         date=data['date'],
         patient_id=data['patient_id'],
         doctor_id=data['doctor_id']
-
     )
 
     db.session.add(service)
