@@ -40,6 +40,15 @@ def deletePerson(id):
     except:
         return Response(status=409)
 
+@persons.route('<id>', methods=['PUT'])
+def putPerson(id):
+    data = request.get_json()
+    personInfo = Person.query.filter_by(id = id).update(data)
+    db.session.commit()
+
+    return jsonify(personInfo)
+
+
 @persons.route('/addDoctor', methods=['POST'])
 def create():
     # try:
